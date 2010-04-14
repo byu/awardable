@@ -1,19 +1,13 @@
-bundle_path 'vendor/bundler_gems'
-bin_path 'vendor/bundler_gems/bin'
-
-clear_sources
 source 'http://gemcutter.org'
 
-only :features do
-  gem 'activerecord', :require_as => 'active_record'
-  gem 'activesupport', :require_as => 'active_support'
+gem 'activerecord', :require => 'active_record'
+gem 'activesupport', :require => 'active_support'
+gem 'sqlite3-ruby', :require => 'sqlite3'
+
+group :features do
   gem 'cucumber'
-  gem 'sqlite3-ruby', :require_as => 'sqlite3'
 end
 
-only :spec do
-  gem 'activerecord', :require_as => 'active_record'
-  gem 'activesupport', :require_as => 'active_support'
+group :spec do
   gem 'rspec'
-  gem 'sqlite3-ruby', :require_as => 'sqlite3'
 end

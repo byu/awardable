@@ -1,6 +1,7 @@
 # Load in all dependent libs using Bundler
-require "#{File.dirname(__FILE__)}/../vendor/bundler_gems/environment"
-Bundler.require_env :spec
+require 'bundler'
+Bundler.setup
+Bundler.require :default, :spec
 
 # Set the loading for the project
 $LOAD_PATH.unshift(File.dirname(__FILE__))

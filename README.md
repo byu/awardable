@@ -8,7 +8,7 @@ ActiveRecord model).
 Links
 -----
 * Repository - <http://github.com/byu/awardable>
-* Yard/RDocs - <http://rdoc.info/projects/byu/awardable>
+* Yard/RDocs - <http://rubydoc.info/github/byu/awardable>
 * Issues - <http://github.com/byu/awardable/issues>
 
 *Questions?* Message one of the Authors listed below.

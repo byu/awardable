@@ -1,39 +1,13 @@
-# Load in all dependent libs using Bundler
-require 'bundler'
-Bundler.setup
-Bundler.require :default, :spec
-
 # Set the loading for the project
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+require 'rspec'
 require 'awardable'
-require 'spec'
-require 'spec/autorun'
 
-Spec::Runner.configure do |config|
-  
-end
+# Requires supporting files with custom matchers and macros, etc,
+# in ./support/ and its subdirectories.
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
-# Create a Test Database
-ActiveRecord::Base.establish_connection(
-    "adapter" => "sqlite3", "database" => ":memory:")
-load(File.dirname(__FILE__) + '/schema.rb')
+RSpec.configure do |config|
 
-class AwardableModel < ActiveRecord::Base
-  acts_as_awardable
-end
-
-class AltAwardableModel < ActiveRecord::Base
-  acts_as_awardable
-end
-
-class InheritAwardableModel < AwardableModel 
-end
-
-class Award < ActiveRecord::Base
-  include Awardable::AwardBase
-end
-
-class Awarding < ActiveRecord::Base
-  include Awardable::AwardingBase
 end

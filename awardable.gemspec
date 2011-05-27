@@ -5,9 +5,9 @@
 
 Gem::Specification.new do |s|
   s.name = %q{awardable}
-  s.version = "0.0.0"
+  s.version = "0.1.0.alpha"
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Benjamin Yu}]
   s.date = %q{2011-05-27}
   s.description = %q{
@@ -21,15 +21,13 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE",
     "NOTICE",
     "README.md",
     "Rakefile",
     "VERSION",
     "awardable.gemspec",
-    "features/awardable.feature",
-    "features/step_definitions/awardable_steps.rb",
-    "features/support/env.rb",
     "generators/awardable_generator.rb",
     "generators/templates/app/models/award.rb",
     "generators/templates/app/models/awarding.rb",
@@ -42,6 +40,7 @@ Gem::Specification.new do |s|
     "spec/awardable/awarding_base_spec.rb",
     "spec/spec.opts",
     "spec/spec_helper.rb",
+    "spec/support/active_record_test_db.rb",
     "spec/support/schema.rb"
   ]
   s.homepage = %q{http://github.com/byu/awardable}

@@ -12,6 +12,7 @@ end
 require 'rake'
 
 require 'jeweler'
+require './lib/awardable/version.rb'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = 'awardable'
@@ -24,6 +25,8 @@ Jeweler::Tasks.new do |gem|
   gem.email = 'benjaminlyu@gmail.com'
   gem.authors = ['Benjamin Yu']
   gem.license = "APACHE-2.0"
+  gem.version = Awardable::VERSION::STRING
+
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

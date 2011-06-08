@@ -8,6 +8,7 @@ ActiveRecord::Schema.define :version => 0 do
     t.integer  :prestige, :default => 0
     t.string   :masculine_title
     t.string   :feminine_title
+    t.string   :ancestry
     t.timestamps
   end
   
@@ -17,11 +18,16 @@ ActiveRecord::Schema.define :version => 0 do
     t.references :award
     t.datetime   :created_at
     t.string     :some_option
+    t.integer    :source_id
+    t.string     :source_type
   end
 
   create_table :awardable_models, :force => true do |t|
     t.string :name
     t.string :type
+  end
+
+  create_table :ar_observed_resources, :force => true do |t|
   end
 
 end

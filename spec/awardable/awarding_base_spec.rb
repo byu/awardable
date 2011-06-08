@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe 'Awarding Base' do
 
   describe 'globally unique' do
-    before :each do
+    before do
       @award = Award.create(
         :name => 'award1',
         :display_name => 'Award 1',
@@ -12,10 +12,10 @@ describe 'Awarding Base' do
       @awardable_2 = AwardableModel.create :name => 'user_name_2'
     end
 
-    after :each do
-      @award.delete
-      @awardable_1.delete
-      @awardable_2.delete
+    after do
+      Awarding.delete_all
+      Award.delete_all
+      AwardableModel.delete_all
     end
 
     it 'should only allow a unique awarding' do
@@ -31,7 +31,7 @@ describe 'Awarding Base' do
   end
 
   describe 'unique by instance' do
-    before :each do
+    before do
       @award = Award.create(
         :name => 'award1',
         :display_name => 'Award 1',
@@ -40,10 +40,10 @@ describe 'Awarding Base' do
       @awardable_2 = AwardableModel.create :name => 'user_name_2'
     end
 
-    after :each do
-      @award.delete
-      @awardable_1.delete
-      @awardable_2.delete
+    after do
+      Awarding.delete_all
+      Award.delete_all
+      AwardableModel.delete_all
     end
 
     it 'should allow only one award per instance' do

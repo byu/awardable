@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe 'ActsAsAwardable' do
   describe 'Awardable Class' do
-    before :each do
+    before do
       @awardable = AwardableModel.new :name => 'user_name_1'
     end
 
@@ -53,7 +53,7 @@ describe 'ActsAsAwardable' do
   end
 
   describe 'InheritAwardableModel Structure' do
-    before :each do
+    before do
       @awardable = AwardableModel.new :name => 'user_name_1'
     end
 
@@ -103,7 +103,7 @@ describe 'ActsAsAwardable' do
   end
 
   describe 'Awardable.find_awarded_with' do
-    before :each do
+    before do
       @award = Award.create(
         :name => 'award1',
         :display_name => 'Award 1')
@@ -115,9 +115,10 @@ describe 'ActsAsAwardable' do
       @awardable.save
     end
 
-    after :each do
-      @award.delete
-      @awardable.delete
+    after do
+      Awarding.delete_all
+      Award.delete_all
+      AwardableModel.delete_all
     end
 
     it 'should find the awardable, using a symbol' do
@@ -142,7 +143,7 @@ describe 'ActsAsAwardable' do
   end
 
   describe 'Awardable Instance' do
-    before :each do
+    before do
       @award = Award.create(
         :name => 'award1',
         :display_name => 'Award 1')
@@ -156,9 +157,10 @@ describe 'ActsAsAwardable' do
       @awardable.save
     end
 
-    after :each do
-      @award.delete
-      @awardable.delete
+    after do
+      Awarding.delete_all
+      Award.delete_all
+      AwardableModel.delete_all
     end
 
     it 'should have two Awards' do
@@ -240,16 +242,17 @@ describe 'ActsAsAwardable' do
   end
 
   describe 'Awardable Instance award_with!' do
-    before :each do
+    before do
       @awardable = AwardableModel.new :name => 'user_name_1'
       @award1 = Award.create(
         :name => 'award1',
         :display_name => 'Award 1')
     end
 
-    after :each do
-      AwardableModel.all.each { |item| item.delete }
-      Award.all.each { |item| item.delete }
+    after do
+      Awarding.delete_all
+      Award.delete_all
+      AwardableModel.delete_all
     end
 
     it 'should be able to be awarded award1, using a symbol' do
@@ -279,7 +282,7 @@ describe 'ActsAsAwardable' do
   end
 
   describe 'Awardable awarded_titles' do
-    before :each do
+    before do
       @name1 = 'crown_knight'
       @mtitle1 = 'Defender of the Crown'
       @award1 = Award.create(
@@ -309,11 +312,10 @@ describe 'ActsAsAwardable' do
       @awardable.save
     end
 
-    after :each do
-      @awardable.delete
-      @award1.delete
-      @award2.delete
-      @award3.delete
+    after do
+      Awarding.delete_all
+      Award.delete_all
+      AwardableModel.delete_all
     end
 
     it 'should handle duplicate awardings' do
